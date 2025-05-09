@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+  <display-name>WebStudy10</display-name>
+  <context-param>
+    <param-name>movieFolder</param-name>
+    <param-value>D:/00.medias/movies</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>DescriptionServlet</servlet-name>
+    <servlet-class>kr.or.ddit.servlet02.DescriptionServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DescriptionServlet</servlet-name>
+    <url-pattern>/desc</url-pattern>
+  </servlet-mapping>
+</web-app>

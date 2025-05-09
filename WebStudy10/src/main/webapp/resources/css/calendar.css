@@ -1,0 +1,23 @@
+@charset "UTF-8";
+body{
+	background-image : url("../images/cat3.png");
+}
+.before,.after{
+	color : silver;
+}
+.today{
+	background-color : green;
+}
+
+th,td{
+	border : 1px solid black;
+}
+table{
+	border-collapse: collapse;
+}
+.SUNDAY{
+	color :red;		
+}
+.SATURDAY{
+	color:blue;
+}

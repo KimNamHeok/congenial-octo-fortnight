@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h4>HTTP의 표준 헤더</h4>
+<pre>
+	SOP(Same-Origin-Policy, 동일 출처의 원칙)
+		: 서로 다른 출처를 가진 자원이 교차 접근을 허용하지 않는 브라우저의 보안 정책.
+		ex) 현재 페이지의 출처와 비동기 요청의 출처가 동일한 경우에만 응답이 소비됨
+	CORS(Cross-Origin-Resource-Sharing)
+		: 응답 헤더에 cors 헤더가 포함된 경우만 교차 접근이 허용됨.
+		Access-Control-Allow-Origin
+		Access-Control-Allow-Method 
+		Access-Control-Allow-Header(특정헤드만 가지고 있으면 허용하겠다)
+</pre>
+<ul id="nameArea">
+
+</ul>
+<script>
+	document.addEventListener("DOMContentLoaded",async ()=>{
+		let resp = await fetch("../../07/proxyServer");
+		if(resp.ok){
+			let array = await resp.json();
+			let lis = array.map((hn,idx)=>`<li>${hn}</li>`).join("\n");
+			nameArea.innerHTML = lis;
+		}
+	})
+</script>
+</body>
+</html>
