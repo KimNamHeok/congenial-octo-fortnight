@@ -4,43 +4,96 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
+
 </head>
 <body>
 <form action="${pageContext.request.contextPath }/test" method="post">
-	<label>아이디</label> <input type="text" name="아이디" required><button>중복확인</button><br>
-	<label>비밀번호</label> <input type="password" name="비밀번호" required><br>
-	<label></label> <input type="password" name="비밀번호확인" required><br>
-	<label>이름</label> <input type="text" name="이름" required><br>
-	<label>주소</label> <input type="text" name="우편번호 앞부분" required>-<input type="text" name="우편번호 뒤부분"><br>
-					   <input type="text" name="상세주소1"><br>
-					   <input type="text" name="상세주소2"><br>
-	<label>휴대전화</label> <select name="휴대전화1">
-  							<option value="010" selected>010</option>
-						 </select>
-						<input type="text" name="휴대전화2"><input type="text" name="휴대전화3"><br>
-	<label>전화번호</label> <select name="전화번호1">
-  							<option value="010" selected>010</option>
-						 </select>
-						<input type="text" name="전화번호2"><input type="text" name="전화번호3"><br>
-	<label>이메일</label> <br><input type="email" name="이메일"><br>
-	<label>생년월일</label> <input type="radio">양력<input type="radio">음력
-						 <select id="numberSelect" />
+	<label>아이디</label>
+	<input type="text" name="userid" required>
+	<button type="button">중복확인</button><br>
+	
+	<label>비밀번호</label>
+	<input type="password" name="password" required><br>
+	<input type="password" name="verifypassword" required><br>
+	
+	<label>이름</label>
+	<input type="text" name="name" required><br>
+	
+	<label>주소</label>
+	<input type="text" name="zipcode1" required>-
+	<input type="text" name="zipcode2" required>
+	<button type="button">우편번호</button><br>
+	<input type="text" name="address1" required><br>
+	<input type="text" name="address2" required><br>
+	
+	<label>휴대전화</label>
+	<select name="cellphone1">
+  	  <option value="010" selected>010</option>
+	</select>
+	<input type="text" name="cellphone2" required>
+	<input type="text" name="cellphone3" required><br>
+	
+	<label>전화번호</label>
+	<select name="phone1">
+  	  <option value="010" selected>010</option>
+	</select>
+	<input type="text" name="phone2" required>
+	<input type="text" name="phone3" required><br>
+	
+	<label>이메일</label><br>
+	<input type="text" name="email_id">
+    <select name="email_domain">
+      <option>@naver.com</option>
+    </select><br>
+	
+	<label>생년월일</label>
+<input type="radio" name="calendar" checked>양력
+<input type="radio" name="calendar">음력<br>
+
+<select name="birth_year" id="numberSelect1"></select>
+<select name="birth_month" id="numberSelect2"></select>
+<select name="birth_day" id="numberSelect3"></select><br>
+
+<input type="checkbox" name="agree" checked> 네.. 뭐 동의 합니다.<br>
+
+<button type="reset">가입취소</button>
+<button type="submit">가입하기</button>
 
 <script>
-  const select = document.getElementById("numberSelect");
-
-  for (let i = 1900; i <= 2025; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.textContent = i;
-    if (i===2025) {
-    	option.selected = true;
-    }
-    select.appendChild(option);
+const select1 = document.getElementById("numberSelect1");
+for (let i = 1900; i <= 2025; i++) {
+  let option = document.createElement("option");
+  option.value = i;
+  option.textContent = i;
+  if (i === 2025) {
+    option.selected = true;
   }
+  select1.appendChild(option);
+}
+
+const select2 = document.getElementById("numberSelect2");
+for (let i = 1; i <= 12; i++) {
+  let option = document.createElement("option");
+  option.value = i;
+  option.textContent = i;
+  if (i === 1) {
+    option.selected = true;
+  }
+  select2.appendChild(option);
+}
+
+const select3 = document.getElementById("numberSelect3");
+for (let i = 1; i <= 31; i++) {
+  let option = document.createElement("option");
+  option.value = i;
+  option.textContent = i;
+  if (i === 1) {
+    option.selected = true;
+  }
+  select3.appendChild(option);
+}
 </script>
-</form>
 
 </body>
 </html>
