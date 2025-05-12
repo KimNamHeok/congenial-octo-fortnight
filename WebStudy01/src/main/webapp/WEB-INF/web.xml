@@ -1,17 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
-  <display-name>WebStudy01</display-name>
-  <context-param>
-    <param-name>movieFolder</param-name>
-    <param-value>D:/00.medias/movies</param-value>
-  </context-param>
-  <servlet>
-    <servlet-name>DescriptionServlet</servlet-name>
-    <servlet-class>kr.or.ddit.servlet02.DescriptionServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DescriptionServlet</servlet-name>
-    <url-pattern>/desc</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	version="6.0">
+	<display-name>WebStudy01</display-name>
+	<context-param>
+		<param-name>movieFolder</param-name>
+		<param-value>D:/00.medias/movies</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>DescriptionServlet</servlet-name>
+		<servlet-class>kr.or.ddit.servlet02.DescriptionServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DescriptionServlet</servlet-name>
+		<url-pattern>/desc</url-pattern>
+	</servlet-mapping>
+<!-- 	<security-constraint> -->
+<!-- 		<web-resource-collection> -->
+<!-- 			<web-resource-name>일반 사용자용 자원</web-resource-name> -->
+<!-- 			<url-pattern>/calendar/*</url-pattern> -->
+<!-- 		</web-resource-collection> -->
+<!-- 		<auth-constraint> -->
+<!-- 			<role-name>ROLE_USER</role-name> -->
+<!-- 		</auth-constraint> -->
+<!-- 	</security-constraint> -->
+<!-- 	<security-constraint> -->
+<!-- 		<web-resource-collection> -->
+<!-- 			<web-resource-name>관리자용 자원</web-resource-name> -->
+<!-- 			<url-pattern>/mbti/*</url-pattern> -->
+<!-- 		</web-resource-collection> -->
+<!-- 		<auth-constraint> -->
+<!-- 			<role-name>ROLE_ADMIN</role-name> -->
+<!-- 		</auth-constraint> -->
+<!-- 	</security-constraint> -->
+<!-- 톰켓에서 지원하는 인증방식 3가지 : BASIC, DIGEST, FORM -->
+<!-- 	<login-config> -->
+<!-- 		<auth-method>FORM</auth-method> -->
+<!-- 		<form-login-config> -->
+<!-- 		<form-login-page>/11/dummyLoginForm.jsp</form-login-page> -->
+<!-- 		<form-error-page>/11/dummyLoginForm.jsp?error=true</form-error-page> -->
+<!-- 		</form-login-config> -->
+<!-- 	</login-config> -->
 </web-app>
+
+
