@@ -36,6 +36,8 @@ public class test extends HttpServlet{
 
         String email = req.getParameter("email_id") + req.getParameter("email_domain");
 
+        String calendar = req.getParameter("calendar");
+        
         String birth = req.getParameter("birth_year") + "-" +
                        req.getParameter("birth_month") + "-" +
                        req.getParameter("birth_day");
@@ -48,7 +50,7 @@ public class test extends HttpServlet{
         System.out.println("휴대전화: " + cellphone);
         System.out.println("전화번호: " + phone);
         System.out.println("이메일: " + email);
-        System.out.println("생년월일: " + birth);
+        System.out.println("생년월일: " +  calendar + birth);
     
 	}
 }

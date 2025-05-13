@@ -8,6 +8,7 @@
 </head>
 <body>
 <h4>Http Session</h4>
+<h1>session id : ${pageContext.session.id }</h1>
 <pre>
 	세션 : 사용자의 한 세션을 의미하는 중의적인 표현.
 		session
@@ -35,7 +36,13 @@
 					session timeout(쓰레기 세션 제거의 조건) 이내에 새로운 요청이 발생하지 않을때.
 					로그아웃(session.invalidate) : 가장 명시적인 종료 조건.
 					<%-- session.invalidate(); --%>
-					
+			session 기본 객체를 통해 session 정보를 획득하고,
+					해당 클라이언트에 소속된 데이터를 저장할 수 있는 session scope를 사용할 수 있음.
+			생성 시점 : ${pageContext.session.creationTime }
+			마지막 접속 시점 : ${pageContext.session.lastAccessedTime }
+			timeout : ${pageContext.session.maxInactiveInterval }
+			<% session.setMaxInactiveInterval(4*60); %>
+			timeout : ${pageContext.session.maxInactiveInterval }
 				 웹쪽에서 연결통로의 의미로 Session을 사용하면 새로고침할 때마다 로그인 풀림(연결통로 끊겼다 다시 연결되니)
 </pre>
 </body>

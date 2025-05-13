@@ -43,6 +43,14 @@
 <!-- 		<form-error-page>/11/dummyLoginForm.jsp?error=true</form-error-page> -->
 <!-- 		</form-login-config> -->
 <!-- 	</login-config> -->
+	<session-config>
+		<session-timeout>4</session-timeout>
+<!-- 		<cookie-config> -->
+<!-- 			<http-only>true</http-only> -->
+<!-- 			<secure>true</secure> -->
+<!-- 		</cookie-config> -->
+<!-- 		<tracking-mode>COOKIE</tracking-mode> -->
+	</session-config>
 </web-app>
 
 

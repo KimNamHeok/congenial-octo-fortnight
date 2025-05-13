@@ -5,8 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-
+<style>
+    label {
+      display: inline-block;
+      width: 70px;
+      margin-top: 10px;
+    }
+    .form-row {
+      margin-bottom: 10px;
+    }
+    input, select, button {
+      margin-top: 5px;
+    }
+  </style>
 </head>
+
 <body>
 <form action="${pageContext.request.contextPath }/test" method="post">
 	<label>아이디</label>
@@ -15,33 +28,33 @@
 	
 	<label>비밀번호</label>
 	<input type="password" name="password" required><br>
-	<input type="password" name="verifypassword" required><br>
+	<label></label><input type="password" name="verifypassword" required><br>
 	
 	<label>이름</label>
 	<input type="text" name="name" required><br>
 	
 	<label>주소</label>
-	<input type="text" name="zipcode1" required>-
-	<input type="text" name="zipcode2" required>
+	<input type="text" size="5" name="zipcode1" required>-
+	<input type="text" size="5" name="zipcode2" required>
 	<button type="button">우편번호</button><br>
-	<input type="text" name="address1" required><br>
-	<input type="text" name="address2" required><br>
+	<input type="text" size="40" name="address1" required><br>
+	<input type="text" size="40" name="address2" required><br>
 	
 	<label>휴대전화</label>
 	<select name="cellphone1">
   	  <option value="010" selected>010</option>
 	</select>
-	<input type="text" name="cellphone2" required>
-	<input type="text" name="cellphone3" required><br>
+	<input type="text"  size="4" name="cellphone2" required>
+	<input type="text" size="4" name="cellphone3" required><br>
 	
 	<label>전화번호</label>
 	<select name="phone1">
   	  <option value="010" selected>010</option>
 	</select>
-	<input type="text" name="phone2" required>
-	<input type="text" name="phone3" required><br>
+	<input type="text" size="4"  name="phone2" required>
+	<input type="text" size="4"  name="phone3" required><br>
 	
-	<label>이메일</label><br>
+	<label>이메일</label>
 	<input type="text" name="email_id">
     <select name="email_domain">
       <option>@naver.com</option>
