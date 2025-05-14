@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import kr.or.ddit.member.service.AuthenticateService;
+import kr.or.ddit.member.service.AuthenticateServiceImpl;
+import kr.or.ddit.member.vo.MemberVO;
 
 /**
  * 해당 객체가 보유한 저장소를 가지고 있는 객체들.. 저장소(scope)들은 보유 객체와 생명주기가 동일함.
@@ -33,10 +36,27 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login/loginCheck")
 public class LoginCheckServlet extends HttpServlet{
-	private boolean authenticate(String username, String password) {		
-//		인증여부 판단 기준 : 입력한 username 과 password가 동일하면 인증 성공
-		return username.equals(password);
-	}
+	private AuthenticateService service = new AuthenticateServiceImpl();
+	/**
+	 * SRP(단일 책임의 원칙)
+	 * O
+	 * L
+	 * I
+	 * D
+	 * 
+	 * 로그인 처리 과정
+	 * 1. username/password 입력 - loginForm.jsp
+	 * 2. 데이터베이스로부터 username 에 해당하는 회원 정보 조회 - 신원 확인 -> dao
+	 * 3. 저장된 비밀번호와 입력 받은 비밀번호 비교 - 본인 여부 확인 (여기서 사용하는게 크리덴셜) -> service(비지니스 로직)
+	 * 4. 상황에 따른 흐름 제어 구조 필요 -> controller
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+//	private boolean authenticate(String username, String password) {		
+////		인증여부 판단 기준 : 입력한 username 과 password가 동일하면 인증 성공
+//		return username.equals(password);
+//	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,8 +76,11 @@ public class LoginCheckServlet extends HttpServlet{
 			message = "아이디나 비밀번호 누락";
 		}else {
 //		4. 검증 통과
+			MemberVO inputData = new MemberVO();
+			inputData.setMemId(username);
+			inputData.setMemPassword(password);
 //			1) 인증 여부 판단
-			if(authenticate(username, password)) {
+			if(service.authenticate(inputData)) {
 //			2) 인증 성공 : 웰컴 페이지로 이동
 				//1. Principal 구현 객체 생성
 				//2. rquest.getUserPrincipal 에서 반환될 수 있도록 세팅.
