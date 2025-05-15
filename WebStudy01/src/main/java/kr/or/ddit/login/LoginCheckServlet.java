@@ -64,7 +64,7 @@ public class LoginCheckServlet extends HttpServlet{
 //		1. 디코딩 설정
 		req.setCharacterEncoding("UTF-8");
 //		2. 파마리터 수신
-		String username = req.getParameter("username");
+		String username = req.getParameter("username");//a001
 		String password = req.getParameter("password");
 		
 		String dest = null;
