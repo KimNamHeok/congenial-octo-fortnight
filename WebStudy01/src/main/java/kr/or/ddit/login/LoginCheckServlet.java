@@ -85,7 +85,7 @@ public class LoginCheckServlet extends HttpServlet{
 				//1. Principal 구현 객체 생성
 				//2. rquest.getUserPrincipal 에서 반환될 수 있도록 세팅.
 //				--> Web Filter 의 활용
-				session.setAttribute("authUser", username);
+				session.setAttribute("authUser", inputData);
 				dest = "/";
 			}else {
 //			3) 인증 실패 : 로그인 페이지 이동
