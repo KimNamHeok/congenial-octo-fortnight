@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.ProdMapper">
+	<select id="selectProdList" resultType="ProdVO">
+		SELECT
+			PROD_ID
+			, PROD_NAME
+			, BUYER_ID
+			, LPROD_GU
+			, PROD_PRICE
+			, PROD_COST
+			, PROD_OUTLINE
+		FROM PROD
+	</select>
+	<select id="selectProd" resultType="ProdVO">
+		SELECT
+		    PROD_ID,
+		    PROD_NAME,
+		    LPROD_GU,
+		    BUYER_ID,
+		    PROD_COST,
+		    PROD_PRICE,
+		    PROD_SALE,
+		    PROD_OUTLINE,
+		    PROD_DETAIL,
+		    PROD_IMG,
+		    PROD_TOTALSTOCK,
+		    PROD_INSDATE,
+		    PROD_PROPERSTOCK,
+		    PROD_SIZE,
+		    PROD_COLOR,
+		    PROD_DELIVERY,
+		    PROD_UNIT,
+		    PROD_QTYIN,
+		    PROD_QTYSALE,
+		    PROD_MILEAGE
+		FROM   PROD
+		WHERE PROD_ID = #{prodId}
+	</select>
+<!-- 	데이터 매퍼 ? 데이터의 타입 변환을 담당함. -->
+<!-- 	null 데이터 변환 규칙성을 정의하기 위해, inline attribute 를 사용함. -->
+	<insert id="insertProd">
+		INSERT INTO PROD (
+		    PROD_ID,
+		    PROD_NAME,
+		    LPROD_GU,
+		    BUYER_ID,
+		    PROD_COST,
+		    PROD_PRICE,
+		    PROD_SALE,
+		    PROD_OUTLINE,
+		    PROD_DETAIL,
+		    PROD_IMG,
+		    PROD_TOTALSTOCK,
+		    PROD_INSDATE,
+		    PROD_PROPERSTOCK,
+		    PROD_SIZE,
+		    PROD_COLOR,
+		    PROD_DELIVERY,
+		    PROD_UNIT,
+		    PROD_QTYIN,
+		    PROD_QTYSALE,
+		    PROD_MILEAGE
+		) VALUES (
+		    #{prodId},
+			#{prodName},
+			#{lprodGu},
+			#{buyerId},
+			#{prodCost},
+			#{prodPrice,jdbcType=NUMERIC},
+			#{prodSale,jdbcType=NUMERIC},
+			#{prodOutline},
+			#{prodDetail,jdbcType=CLOB},
+			#{prodImg,jdbcType=VARCHAR},
+			#{prodTotalstock,jdbcType=NUMERIC},
+			#{prodInsdate},
+			#{prodProperstock,jdbcType=NUMERIC},
+			#{prodSize,jdbcType=VARCHAR},
+			#{prodColor,jdbcType=VARCHAR},
+			#{prodDelivery,jdbcType=VARCHAR},
+			#{prodUnit,jdbcType=VARCHAR},
+			#{prodQtyin,jdbcType=NUMERIC},
+			#{prodQtysale,jdbcType=NUMERIC},
+			#{prodMileage,jdbcType=NUMERIC}
+		)
+	</insert>
+	
+	<update id="updateProd">
+		UPDATE PROD
+		SET
+			PROD_NAME= #{prodName},
+			PROD_COST= #{prodCost},
+			PROD_PRICE= #{prodPrice},
+			PROD_SALE= #{prodSale},
+			PROD_OUTLINE= #{prodOutline},
+			PROD_DETAIL= #{prodDetail},
+			PROD_IMG= #{prodImg},
+			PROD_TOTALSTOCK= #{prodTotalstock},
+			PROD_INSDATE= #{prodInsdate},
+			PROD_PROPERSTOCK= #{prodProperstock},
+			PROD_SIZE= #{prodSize},
+			PROD_COLOR= #{prodColor},
+			PROD_DELIVERY= #{prodDelivery},
+			PROD_UNIT= #{prodUnit},
+			PROD_QTYIN= #{prodQtyin},
+			PROD_QTYSALE= #{prodQtysale},
+			PROD_MILEAGE= #{prodMileage}
+		WHERE PROD_ID = #{prodId}
+		
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

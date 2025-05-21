@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+<!-- appender : 로그 메시지 기록 매체 -->
+<!-- layout : 일정한 형식의 로그를 기록하기 위해. 로그 형식을 포맷으로 결정함. -->
+<!-- logger : 로그 메시지 기록자 -->
+<!-- 		: 구체적인 로거가 없는 경우, root 로거가 기본으로 사용됨. -->
+<!-- level : 로거가 메시지를 기록할 때 출력 여부를 결정하는 기준. 
+	 trace debug info warn error fatal
+ 	 -> 메시지의 등급이 상승하고, 로거에 설정된 level 보다 메시지의 등급이 낮으면 출력에서 제외. 
+-->
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{15} -%kvp- %msg%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="kr.or.ddit" level="info"/>
+  <logger name="jdbc.sqltiming" level="debug" />
+  <logger name="jdbc.resultsettable" level="info" />
+  <root level="error">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>

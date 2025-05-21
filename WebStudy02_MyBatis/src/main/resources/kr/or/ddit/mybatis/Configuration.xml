@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+<!-- 	Connection 생성과 transaction 관리를 위한 기본 정보 설정 파일 -->
+<!-- javascript `${}` - template -->
+<!-- jsp ${} - EL -->
+<!-- xml ${} - placeholder -->
+<!-- mybatis mapper xml ${} - replace text -->
+	<properties resource="kr/or/ddit/db/DBInfo.properties"></properties>
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="VARCHAR"/>
+	</settings>
+	<typeAliases>
+		<package name="kr.or.ddit.vo"/>
+	</typeAliases>
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driverClassName}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+				<property name="poolMaximumActiveConnections" value="${maximumPoolSize}"/>
+				<property name="poolMaximumIdleConnections" value="${minimumIdle}"/>
+				<property name="poolTimeToWait" value="${connectionTimeout}"/>
+			</dataSource>
+		</environment>
+	</environments>
+<!-- 사용할 모든 매퍼의 정보 설정 -->
+	<mappers>
+		<mapper resource="kr/or/ddit/mapper/MemberMapper.xml" />
+		<mapper resource="kr/or/ddit/mapper/MbtiMapper.xml" />
+		<mapper resource="kr/or/ddit/mapper/ProdMapper.xml"/>
+	</mappers>
+</configuration>
