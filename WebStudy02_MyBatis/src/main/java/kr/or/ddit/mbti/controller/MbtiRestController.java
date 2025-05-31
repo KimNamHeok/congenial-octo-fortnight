@@ -18,7 +18,7 @@ import kr.or.ddit.vo.MbtiVO;
 
 @WebServlet("/rest/mbti")
 public class MbtiRestController extends HttpServlet{
-	private MbtiMapper service = new MbtiMapperImpl();
+	private MbtiService service = new MbtiServiceImpl();
 	Gson gson = new Gson();
 	
 //	@Override ==> CorsFilter 로 이동.
@@ -50,3 +50,17 @@ public class MbtiRestController extends HttpServlet{
 		resp.sendRedirect(req.getContextPath() + "/rest/mbti");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

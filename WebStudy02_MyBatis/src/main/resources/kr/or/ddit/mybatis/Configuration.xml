@@ -33,5 +33,7 @@
 		<mapper resource="kr/or/ddit/mapper/MemberMapper.xml" />
 		<mapper resource="kr/or/ddit/mapper/MbtiMapper.xml" />
 		<mapper resource="kr/or/ddit/mapper/ProdMapper.xml"/>
+		<mapper resource="kr/or/ddit/mapper/BuyerMapper.xml"/>
+		<mapper resource="kr/or/ddit/mapper/LprodMapper.xml"/>
 	</mappers>
 </configuration>

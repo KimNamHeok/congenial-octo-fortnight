@@ -1,6 +1,7 @@
 package kr.or.ddit.mapper.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,6 +21,11 @@ public class ProdMapperImpl implements ProdMapper {
 		return template.execute((mp)->mp.insertProd(prod));
 	}
 
+	@Override
+	public List<Map<String, Object>> selectProdListForMap() {
+		return template.execute((mp)->mp.selectProdListForMap());
+	}
+	
 	@Override
 	public List<ProdVO> selectProdList() {
 //		1. 세션 개방

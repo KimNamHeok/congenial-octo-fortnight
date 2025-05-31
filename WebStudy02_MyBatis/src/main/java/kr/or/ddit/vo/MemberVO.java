@@ -2,16 +2,14 @@ package kr.or.ddit.vo;
 
 import java.io.Serializable;
 
-import org.apache.commons.lang3.builder.ToStringExclude;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Data
-@EqualsAndHashCode(of = "memId") // 데이터베이스 설계
+@Data 
+@EqualsAndHashCode(of = "memId") // 데이터베이스 설계 참고
 //@Getter
 //@Setter
 //@EqualsAndHashCode

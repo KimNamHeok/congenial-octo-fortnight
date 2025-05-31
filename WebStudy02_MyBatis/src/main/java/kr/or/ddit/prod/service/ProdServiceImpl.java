@@ -12,8 +12,7 @@ public class ProdServiceImpl implements ProdService {
 	
 	@Override
 	public void createProd(ProdVO prod) {
-		// TODO Auto-generated method stub
-
+		mapper.insertProd(prod);
 	}
 
 	@Override
@@ -28,8 +27,16 @@ public class ProdServiceImpl implements ProdService {
 
 	@Override
 	public void modifyProd(ProdVO prod) {
-		// TODO Auto-generated method stub
+		mapper.updateProd(prod);
 
 	}
 
 }
+
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 package kr.or.ddit.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.or.ddit.vo.ProdVO;
 
@@ -20,6 +21,7 @@ public interface ProdMapper {
 	 * @return
 	 */
 	public List<ProdVO> selectProdList();
+	public List<Map<String, Object>> selectProdListForMap();
 	/**
 	 * 상품 상세 조회
 	 * @param prodId

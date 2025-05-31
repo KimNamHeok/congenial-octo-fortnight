@@ -9,10 +9,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kr.or.ddit.ViewResolverComposite;
+import kr.or.ddit.exception.ResponseStatusException;
 import kr.or.ddit.prod.service.ProdService;
 import kr.or.ddit.prod.service.ProdServiceImpl;
 import kr.or.ddit.vo.ProdVO;
-
 
 @WebServlet("/prod/prodDetail.do")
 public class ProdDetailControllerServlet extends HttpServlet{
@@ -27,12 +28,23 @@ public class ProdDetailControllerServlet extends HttpServlet{
 		}
 		try {
 			ProdVO prod = service.readProd(prodId)
-								.orElseThrow(IllegalStateException::new);
+								.orElseThrow(()->
+									new ResponseStatusException(400, "그런 상품 없음"));
 			req.setAttribute("prod", prod);
-			String view = "/WEB-INF/view/prod/prodDetail.jsp";
-			req.getRequestDispatcher(view).forward(req, resp);
-		}catch (IllegalStateException e) {
-			resp.sendError(404);
+			String lvn = "prod/prodDetail";
+			new ViewResolverComposite().resolveView(lvn, req, resp);
+		}catch (ResponseStatusException e) {
+			resp.sendError(e.getStatus());
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+

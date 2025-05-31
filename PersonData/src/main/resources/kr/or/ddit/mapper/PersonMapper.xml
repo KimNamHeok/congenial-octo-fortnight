@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.ddit.mapper.PersonMapper">
+	<resultMap type="PersonVO" id="personMap" autoMapping="true" >
+	</resultMap>
+	
+	<select id="selectPersonList" resultType="PersonVO">
+		SELECT
+			ID
+			, NAME
+			, GENDER
+			, AGE
+			, ADDRESS
+		FROM PERSON
+	</select>
+	
+	<select id="selectPerson">
+		SELECT
+			ID
+			, NAME
+			, GENDER
+			, AGE
+			, ADDRESS
+		FROM PERSON
+		WHERE ID = #{id}
+	</select>
+	
+
+
+<!-- 	데이터 매퍼 ? 데이터의 타입 변환을 담당함. -->
+<!-- 	null 데이터 변환 규칙성을 정의하기 위해, inline attribute 를 사용함. -->
+	<insert id="insertPerson">
+		INSERT INTO PERSON (
+		    ID
+			, NAME
+			, GENDER
+			, AGE
+			, ADDRESS
+		) VALUES (
+		    #{id},
+			#{name},
+			#{gender},
+			#{age},
+			#{address}
+		)
+	</insert>
+	
+	<update id="updatePerson">
+		UPDATE PERSON
+		SET
+			NAME= #{name},
+			GENDER= #{gender},
+			AGE= #{age},
+			ADDRESS= #{address}
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="deletePerson">
+		DELETE FROM PERSON WHERE ID = #{id}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
